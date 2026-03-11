@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Айгүлдің 50 жас мерейтойы</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            /* Сделали цвет текста еще темнее для лучшего контраста */
             --text-main: #2A1E18; 
             --accent: #D4A3A1; 
             --accent-dark: #A36A68;
@@ -27,7 +26,6 @@
             background-attachment: fixed;
             color: var(--text-main);
             font-family: 'Montserrat', sans-serif;
-            /* Увеличили базовый размер шрифта и сделали его жирнее (500) */
             font-size: 17px; 
             font-weight: 500;
             text-align: center;
@@ -54,7 +52,6 @@
             transform: translateY(0);
         }
 
-        /* Более выраженное свечение вокруг жирного текста */
         h1, h2, h3, .invitation-text {
             font-family: 'Cormorant Garamond', serif;
             color: var(--text-main);
@@ -63,22 +60,21 @@
             text-shadow: 0 0 15px rgba(255, 255, 255, 0.95);
         }
 
-        /* НОВЫЙ ДИЗАЙН КНОПКИ МУЗЫКИ */
+        /* ОБНОВЛЕННАЯ КНОПКА МУЗЫКИ: БЕЗ ФОНА, ЧИТАБЕЛЬНАЯ */
         #music-btn {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            width: 85px;
-            height: 85px;
+            width: 95px;
+            height: 95px;
             cursor: pointer;
             z-index: 1000;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: transform 0.3s ease;
-            background: rgba(255,255,255,0.7);
+            background: transparent; /* Убрали фон */
             border-radius: 50%;
-            backdrop-filter: blur(5px);
         }
         #music-btn:hover { transform: scale(1.05); }
         .music-text-svg {
@@ -86,11 +82,13 @@
             width: 100%;
             height: 100%;
             animation: spinText 12s linear infinite;
+            /* Легкое свечение, чтобы текст читался на фоне пионов */
+            filter: drop-shadow(0px 0px 4px rgba(255,255,255,0.9)); 
         }
         .music-icon-circle {
-            width: 42px;
-            height: 42px;
-            background-color: #C0392B; /* Красный цвет как на картинке */
+            width: 44px;
+            height: 44px;
+            background-color: #C0392B; 
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -98,14 +96,14 @@
             color: #fff;
             font-size: 16px;
             z-index: 2;
-            box-shadow: 0 4px 10px rgba(192, 57, 43, 0.4);
-            padding-left: 2px; /* Выравнивание иконки play */
+            box-shadow: 0 4px 10px rgba(192, 57, 43, 0.5);
+            padding-left: 2px; 
+            border: 2px solid #fff; /* Тонкая белая рамка для контраста */
         }
         @keyframes spinText {
             100% { transform: rotate(360deg); }
         }
 
-        /* Обложка */
         .hero {
             height: 100vh; display: flex; flex-direction: column;
             justify-content: center; align-items: center; padding: 20px;
@@ -118,7 +116,6 @@
         }
         .hero h1 { font-size: 4.2em; line-height: 1.1; margin-bottom: 20px; color: var(--text-main); font-weight: 700;}
         
-        /* Таймер */
         .timer-container { display: flex; justify-content: center; gap: 15px; margin-top: 40px; }
         .timer-box {
             background: rgba(255, 255, 255, 0.9); border: 2px solid rgba(212, 163, 161, 0.6);
@@ -132,11 +129,9 @@
         .section-title { font-size: 3em; margin-bottom: 30px; text-align: center; }
         .section-title span { display: block; font-family: 'Montserrat', sans-serif; font-size: 0.35em; letter-spacing: 3px; text-transform: uppercase; color: var(--accent-dark); margin-bottom: 10px; font-weight: 700;}
 
-        /* Текст приглашения - увеличен и сделан жирным */
         .invitation-text { font-size: 1.2em; text-align: center; line-height: 1.6; font-weight: 600;}
         .invitation-text b { font-family: 'Cormorant Garamond', serif; font-size: 1.6em; color: var(--accent-dark); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* Детали времени и места */
         .details-card {
             background: rgba(255, 255, 255, 0.95); padding: 40px; border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.08); margin-top: 20px;
@@ -150,7 +145,6 @@
         .time-highlight { font-size: 2.8em; color: var(--accent-dark); font-weight: 700; }
         .address-text { font-family: 'Montserrat', sans-serif; font-size: 1.1em; margin-top: 10px; font-weight: 600;}
 
-        /* Кнопка 2GIS */
         .btn-2gis {
             display: inline-block; background-color: #A3C94E; color: #fff;
             text-decoration: none; padding: 18px 35px; border-radius: 50px;
@@ -160,7 +154,6 @@
         .btn-2gis i { margin-right: 8px; font-size: 1.2em; }
         .btn-2gis:hover { background-color: #8EB33B; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(163, 201, 78, 0.5); color: #fff; }
 
-        /* Дополнительный блок с инфой */
         .info-block {
             margin-top: 35px; background: rgba(255, 255, 255, 0.95); 
             padding: 25px 20px; border-radius: 15px; 
@@ -169,7 +162,6 @@
             font-weight: 600; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
 
-        /* Форма RSVP */
         .rsvp-section { background-color: transparent; }
         .rsvp-form { max-width: 400px; margin: 0 auto; background: rgba(255, 255, 255, 0.95); padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 2px solid rgba(212, 163, 161, 0.4); backdrop-filter: blur(5px);}
         .input-group { margin-bottom: 20px; text-align: left; }
@@ -203,10 +195,10 @@
 
     <div id="music-btn" onclick="toggleMusic()">
         <svg class="music-text-svg" viewBox="0 0 100 100">
-            <path id="textPath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="transparent" />
-            <text fill="#2A1E18" font-family="'Montserrat', sans-serif" font-weight="700" font-size="14.5" letter-spacing="3.5">
+            <path id="textPath" d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" fill="transparent" />
+            <text fill="#2A1E18" font-family="'Montserrat', sans-serif" font-weight="800" font-size="12.5" letter-spacing="1.5">
                 <textPath href="#textPath" startOffset="0%">
-                    ВКЛЮЧИТЬ • МУЗЫКУ • 
+                    МУЗЫКАНЫ • ҚОСУ • 
                 </textPath>
             </text>
         </svg>
@@ -275,19 +267,19 @@
                 <div class="detail-icon"><i class="fas fa-map-marker-alt"></i></div>
                 <div class="detail-title">Өтетін орны</div>
                 <div class="detail-value">«Шах» мейрамханасы</div>
-                <div class="address-text">Алматы қ., Хан шатыр көшесі, 287/1а<br><span style="font-weight:500; font-size: 0.9em; opacity: 0.8;">(пересечение Рыскулова – Бауыржана Момышулы)</span></div>
+                <div class="address-text">Алматы қ., Хан шатыр көшесі, 287/1а<br><span style="font-weight:500; font-size: 0.9em; opacity: 0.8;">(Рысқұлов пен Бауыржан Момышұлы көшелерінің қиылысы)</span></div>
                 
                 <a href="https://2gis.kz/almaty/search/Хан%20шатыр%20287%2F1а" target="_blank" class="btn-2gis">
                     <i class="fas fa-map-location-dot"></i> 2GIS арқылы ашу
                 </a>
                 
                 <div class="info-block">
-                    <p style="margin-top: 0; margin-bottom: 15px;">Ищите вывеску <b style="color: var(--accent-dark);">“TERRASA”</b>, поднимайтесь по лестнице по красной дорожке — на входе вас встретит хостес и проводит к столу по брони.</p>
-                    <p style="margin-bottom: 8px; color: var(--accent-dark); font-size: 1.1em;">🚗 <b>Парковка для гостей:</b></p>
-                    <ul style="margin: 0; padding-left: 20px; line-height: 1.5; font-weight: 500;">
-                        <li>100 тг/час, первые 15 минут бесплатно</li>
-                        <li>Оплата через Kaspi QR внутри ресторана</li>
-                        <li>Парковка прямо возле террасы</li>
+                    <p style="margin-top: 0; margin-bottom: 15px;"><b style="color: var(--accent-dark);">“TERRASA”</b> жазуы бар маңдайшаны тауып, қызыл кілем төселген баспалдақпен көтеріліңіз — кіреберісте сізді хостес қарсы алып, брондалған үстелге дейін шығарып салады.</p>
+                    <p style="margin-bottom: 8px; color: var(--accent-dark); font-size: 1.1em;">🚗 <b>Қонақтарға арналған автотұрақ:</b></p>
+                    <ul style="margin: 0; padding-left: 20px; line-height: 1.5; font-weight: 600;">
+                        <li>Сағатына 100 тг, алғашқы 15 минут тегін</li>
+                        <li>Төлем мейрамхана ішінде Kaspi QR арқылы жүргізіледі</li>
+                        <li>Автотұрақ террасаның дәл жанында орналасқан</li>
                     </ul>
                 </div>
 
@@ -329,7 +321,6 @@
         }, { threshold: 0.1 });
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-        // ОБНОВЛЕННАЯ ЛОГИКА КНОПКИ МУЗЫКИ
         const music = document.getElementById("bg-music");
         const musicIcon = document.getElementById("music-icon");
         let isPlaying = false;
@@ -338,12 +329,12 @@
                 music.pause();
                 musicIcon.classList.remove('fa-pause');
                 musicIcon.classList.add('fa-play');
-                musicIcon.parentElement.style.paddingLeft = '2px'; // Центрируем треугольник play
+                musicIcon.parentElement.style.paddingLeft = '2px';
             } else {
                 music.play();
                 musicIcon.classList.remove('fa-play');
                 musicIcon.classList.add('fa-pause');
-                musicIcon.parentElement.style.paddingLeft = '0'; // Центрируем паузу
+                musicIcon.parentElement.style.paddingLeft = '0';
             }
             isPlaying = !isPlaying;
         }
