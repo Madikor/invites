@@ -9,23 +9,42 @@
     
     <style>
         :root {
-            --bg-color: #FAF6F5; /* Нежный молочно-пудровый */
             --text-main: #4A403A; /* Глубокий серо-коричневый для чтения */
-            --accent: #D4A3A1; /* Приглушенное розовое золото */
+            --accent: #D4A3A1; /* Матовое розовое золото */
             --accent-dark: #B88684;
             --white: #FFFFFF;
+            /* Нежный молочно-пудровый цвет для наложения */
+            --overlay-color: rgba(250, 246, 245, 0.85); 
         }
         
         body {
             margin: 0;
             padding: 0;
-            background-color: var(--bg-color);
+            /* UX РЕШЕНИЕ: Устанавливаем изображение image_23.png фоном всей страницы */
+            background-image: url('image_23.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* Эффект параллакса при скролле */
             color: var(--text-main);
             font-family: 'Montserrat', sans-serif;
             font-weight: 300;
             text-align: center;
             overflow-x: hidden;
             line-height: 1.6;
+            position: relative;
+        }
+
+        /* UX РЕШЕНИЕ: Полупрозрачное наложение кремового цвета поверх цветов для читабельности */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--overlay-color);
+            z-index: -1; /* Наложение находится ПОЗАДИ текста, но ПЕРЕД изображением */
         }
 
         /* Плавное появление */
@@ -77,8 +96,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            /* Легкий градиент поверх цветочного паттерна (можно заменить URL на фото именинницы) */
-            background: linear-gradient(rgba(250, 246, 245, 0.85), rgba(250, 246, 245, 0.95)), url('https://images.unsplash.com/photo-1508610048659-a06b669e3321?q=80&w=1000&auto=format&fit=crop') center/cover;
+            /* UX РЕШЕНИЕ: Мы удалили конкретный фон для .hero, чтобы фон всей страницы (body) был непрерывным */
             padding: 20px;
             position: relative;
         }
@@ -149,7 +167,7 @@
         
         .timeline-icon {
             position: absolute; left: 50%; transform: translateX(-50%);
-            width: 40px; height: 40px; background: var(--bg-color); border: 1px solid var(--accent);
+            width: 40px; height: 40px; background: rgba(250, 246, 245, 0.9); border: 1px solid var(--accent);
             border-radius: 50%; display: flex; align-items: center; justify-content: center;
             color: var(--accent-dark); z-index: 2;
         }
@@ -182,7 +200,7 @@
         
         input, select {
             width: 100%; box-sizing: border-box; padding: 15px;
-            background: var(--bg-color); border: 1px solid transparent;
+            background: rgba(250, 246, 245, 0.7); border: 1px solid transparent;
             color: var(--text-main); border-radius: 8px; font-family: 'Montserrat', sans-serif; font-size: 1em;
             transition: all 0.3s ease;
         }
