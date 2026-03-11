@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Айгүлдің 50 жас мерейтойы</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #4a0414; /* Глубокий бордовый фон */
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+        }
+        .hero {
+            padding: 80px 20px 40px;
+            background-image: radial-gradient(circle, #6a051d 0%, #30020c 100%);
+        }
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            color: #d4af37; /* Золотой цвет */
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        h2 {
+            font-size: 1.5em;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+        }
+        .details {
+            margin: 40px auto;
+            max-width: 600px;
+            padding: 0 20px;
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+        .gold-text { color: #d4af37; font-weight: 600; }
+        .timer-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 40px 0;
+        }
+        .timer-box {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid #d4af37;
+            padding: 15px;
+            border-radius: 8px;
+            min-width: 60px;
+        }
+        .timer-box span {
+            display: block;
+            font-size: 2em;
+            font-weight: bold;
+            color: #d4af37;
+        }
+        .timer-box p { margin: 5px 0 0; font-size: 0.8em; }
+        .rsvp {
+            background-color: #f8f5f0;
+            color: #333;
+            padding: 50px 20px;
+            margin-top: 50px;
+        }
+        .rsvp h3 { font-family: 'Cormorant Garamond', serif; font-size: 2.5em; color: #4a0414; margin-top:0; }
+        button {
+            background-color: #d4af37;
+            color: #fff;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1em;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        button:hover { background-color: #b8962e; }
+    </style>
+</head>
+<body>
+
+    <div class="hero">
+        <h2>ҚҰРМЕТТІ ҚОНАҚТАР!</h2>
+        <h1>Айгүлдің 50 жас мерейтойы</h1>
+        <p>Сіздерді осы айтулы мерекені бізбен бірге бөлісуге шақырамыз!</p>
+        
+        <div class="timer-container" id="countdown">
+            <div class="timer-box"><span id="days">00</span><p>Күн</p></div>
+            <div class="timer-box"><span id="hours">00</span><p>Сағат</p></div>
+            <div class="timer-box"><span id="minutes">00</span><p>Минут</p></div>
+            <div class="timer-box"><span id="seconds">00</span><p>Секунд</p></div>
+        </div>
+    </div>
+
+    <div class="details">
+        <p><span class="gold-text">КҮНІ:</span> 20 наурыз 2026 жыл</p>
+        <p><span class="gold-text">БАСТАЛУ УАҚЫТЫ:</span> 18:00</p>
+        <p><span class="gold-text">ОРНЫ:</span> «Шах» мейрамханасы</p>
+        <p><span class="gold-text">МЕКЕН-ЖАЙЫ:</span> Алматы қ., Хан шатыр көшесі, 287/1а</p>
+    </div>
+
+    <div class="rsvp">
+        <h3>Келуіңізді растауыңызды сұраймыз</h3>
+        <p>Мерекеде сізді күтеміз бе?</p>
+        <form action="#" method="POST">
+            <input type="text" placeholder="Аты-жөніңіз (Ваше имя)" required style="padding: 10px; width: 80%; max-width: 300px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px;"><br>
+            <button type="submit">Иә, мен келемін!</button>
+        </form>
+    </div>
+
+    <script>
+        // Устанавливаем дату: 20 марта 2026, 18:00
+        const countDownDate = new Date("Mar 20, 2026 18:00:00").getTime();
+
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "<h2 style='color:#d4af37;'>Мереке басталды!</h2>";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
